@@ -120,11 +120,11 @@ async function saveTool() {
   }
 
   const body = {
-    rfid_uid: selectedTag,
-    name: name,
-    weight: weight,
-    description: description
-  };
+  rfid_uid: selectedTag,
+  name: name,
+  weight: weight,
+  description: description
+}
 
   try {
     const res = await fetch(`${API_BASE}/register/save-tool`, {
