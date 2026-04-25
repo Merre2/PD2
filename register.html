@@ -59,13 +59,13 @@ async function fetchAvailableTags() {
       return;
     }
 
-    let html = "<p>Följande RFID-taggar hittadess: </p>";
+    let html = "<p>Följande RFID-taggar hittades: </p>";
 
     availableTags.forEach(tag => {
       html += `
         <div style="margin-bottom: 20px; padding: 10px; border: 1px solid black;">
           <p>ID# ${tag.rfid_uid} finns</p>
-          <p>Vill du fylla information för denna RFID-tagg?</p>
+          <p>Vill du fylla information för denna RFID-taggg?</p>
           <button onclick="showForm('${tag.rfid_uid}')">Ja</button>
           <button onclick="showMainView()">Nej</button>
         </div>
