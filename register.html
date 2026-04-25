@@ -64,9 +64,9 @@ async function fetchAvailableTags() {
     availableTags.forEach(tag => {
       html += `
         <div style="margin-bottom: 20px; padding: 10px; border: 1px solid black;">
-          <p>ID# ${tag.rfidTag} finns</p>
+          <p>ID# ${tag.rfid_uid} finns</p>
           <p>Vill du fylla information för denna RFID-tagg?</p>
-          <button onclick="showForm('${tag.rfidTag}')">Ja</button>
+          <button onclick="showForm('${tag.rfid_uid}')">Ja</button>
           <button onclick="showMainView()">Nej</button>
         </div>
       `;
@@ -84,13 +84,13 @@ async function fetchAvailableTags() {
   }
 }
 
-function showForm(rfidTag) {
-  selectedTag = rfidTag;
+function showForm(rfid_uid) {
+  selectedTag = rfid_uid;
   const resultView = document.getElementById("resultView");
 
   resultView.innerHTML = `
     <h2>Registrera verktyg</h2>
-    <p>RFID-tagg: <strong>${rfidTag}</strong></p>
+    <p>RFID-tagg: <strong>${rfid_uid}</strong></p>
 
     <label for="toolName">Name:</label><br>
     <input type="text" id="toolName"><br><br>
@@ -120,7 +120,7 @@ async function saveTool() {
   }
 
   const body = {
-    rfidTag: selectedTag,
+    rfid_uid: selectedTag,
     name: name,
     weight: weight,
     description: description
